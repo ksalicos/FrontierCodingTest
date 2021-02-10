@@ -9,43 +9,28 @@
             <div class="account-container-title" id="active-account-container-title">
                 <h3>Active</h3>
             </div>
-            <div class="account-container active-account">
-                <ul class="account-data-list">
-                    <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                    <li><label>Email:</label>{{Email}}</li>
-                    <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                    <li><label>Amount Due:</label>{{AmountDue}}</li>
-                    <li><label>Due Date:</label>{{DueDate}}</li>
-                </ul>
-            </div>
+            @foreach (var account in Model.Active)
+            {
+                @await Html.PartialAsync("_AccountPartial", account)
+            }
         </section>
         <section class="account-column" id="overdue-account-column">
             <div class="account-container-title" id="overdue-account-container-title">
                 <h3>Overdue</h3>
             </div>
-            <div class="account-container overdue-account">
-                <ul class="account-data-list">
-                    <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                    <li><label>Email:</label>{{Email}}</li>
-                    <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                    <li><label>Amount Due:</label>{{AmountDue}}</li>
-                    <li><label>Due Date:</label>{{DueDate}}</li>
-                </ul>
-            </div>
+            @foreach (var account in Model.Overdue)
+            {
+                @await Html.PartialAsync("_AccountPartial", account)
+            }
         </section>
         <div class="account-column" id="inactive-account-column">
             <div class="account-container-title" id="inactive-account-container-title">
                 <h3>Inactive</h3>
             </div>
-            <div class="account-container inactive-account">
-                <ul class="account-data-list">
-                    <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                    <li><label>Email:</label>{{Email}}</li>
-                    <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                    <li><label>Amount Due:</label>{{AmountDue}}</li>
-                    <li><label>Due Date:</label>{{DueDate}}</li>
-                </ul>
-            </div>
+            @foreach (var account in Model.Inactive)
+            {
+                @await Html.PartialAsync("_AccountPartial", account)
+            }
         </div>
     </section>
 </main>

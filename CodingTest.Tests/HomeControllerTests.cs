@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CodingTest.Common.Models.ViewModels;
 using CodingTest.Common.Services;
 using CodingTest.Web.Controllers;
@@ -19,11 +20,11 @@ namespace CodingTest.Tests
         }
 
         [TestMethod]
-        public void IndexRenders()
+        public async Task IndexRenders()
         {
-            _accountServiceMock.Setup(s => s.GetAll()).Returns(new GetAllViewModel());
+            _accountServiceMock.Setup(s => s.GetAll()).Returns(Task.FromResult(new GetAllViewModel()));
             var controller = new HomeController(_loggerMock.Object, _accountServiceMock.Object);
-            controller.Index();
+            await controller.Index();
         }
     }
 }

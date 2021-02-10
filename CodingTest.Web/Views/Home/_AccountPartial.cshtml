@@ -1,0 +1,14 @@
+﻿@model CodingTest.Common.Models.Accounts.Account
+
+<div class="account-container active-account">
+    <ul class="account-data-list">
+        <li><label>Name:</label>@Model.LastName, @Model.FirstName</li>
+        <li><label>Email:</label>@Model.Email</li>
+        <li><label>Phone Number:</label>@Model.PhoneFormatted</li>
+        <li><label>Amount Due:</label>@string.Format("${0:#.00}", Model.AmountDue)</li>
+        @if (Model.PaymentDueDate.HasValue)
+        {
+            <li><label>Due Date:</label>@Model.PaymentDueDate?.ToString("dd/MM/yyyy")</li>
+        }
+    </ul>
+</div>

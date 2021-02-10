@@ -8,11 +8,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CodingTest.Common.Services;
 
 namespace CodingTest.Web
 {
     public class Startup
     {
+        // TODO: Move to settings
+        private const string ApiUrl = "https://frontiercodingtests.azurewebsites.net/api/accounts/getall";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +28,8 @@ namespace CodingTest.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddScoped<IAccountService, AccountService>(s => new AccountService(ApiUrl));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,8 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model CodingTest.Common.Models.ViewModels.GetAllViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<main class="content" id="home-content">
+    <div class="content-title-container">
+        <h2>Accounts</h2>
+    </div>
+    <section id="account-grid">
+        <section class="account-column" id="active-account-column">
+            <div class="account-container-title" id="active-account-container-title">
+                <h3>Active</h3>
+            </div>
+            <div class="account-container active-account">
+                <ul class="account-data-list">
+                    <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
+                    <li><label>Email:</label>{{Email}}</li>
+                    <li><label>Phone Number:</label>{{PhoneNumber}}</li>
+                    <li><label>Amount Due:</label>{{AmountDue}}</li>
+                    <li><label>Due Date:</label>{{DueDate}}</li>
+                </ul>
+            </div>
+        </section>
+        <section class="account-column" id="overdue-account-column">
+            <div class="account-container-title" id="overdue-account-container-title">
+                <h3>Overdue</h3>
+            </div>
+            <div class="account-container overdue-account">
+                <ul class="account-data-list">
+                    <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
+                    <li><label>Email:</label>{{Email}}</li>
+                    <li><label>Phone Number:</label>{{PhoneNumber}}</li>
+                    <li><label>Amount Due:</label>{{AmountDue}}</li>
+                    <li><label>Due Date:</label>{{DueDate}}</li>
+                </ul>
+            </div>
+        </section>
+        <div class="account-column" id="inactive-account-column">
+            <div class="account-container-title" id="inactive-account-container-title">
+                <h3>Inactive</h3>
+            </div>
+            <div class="account-container inactive-account">
+                <ul class="account-data-list">
+                    <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
+                    <li><label>Email:</label>{{Email}}</li>
+                    <li><label>Phone Number:</label>{{PhoneNumber}}</li>
+                    <li><label>Amount Due:</label>{{AmountDue}}</li>
+                    <li><label>Due Date:</label>{{DueDate}}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>

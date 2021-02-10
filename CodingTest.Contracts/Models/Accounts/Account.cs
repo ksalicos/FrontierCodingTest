@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using CodingTest.Common.Enums;
 
 namespace CodingTest.Common.Models.Accounts
@@ -17,8 +18,9 @@ namespace CodingTest.Common.Models.Accounts
 
         public decimal AmountDue { get; set; }
 
-        public DateTimeOffset PaymentDueDate { get; set; }
+        public DateTimeOffset? PaymentDueDate { get; set; }
 
+        [JsonPropertyName("AccountStatusId")]
         public AccountStatus Status { get; set; }
     }
 }
